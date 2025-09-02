@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme{
+    --font-heading: oswald;
+    --font-regular: inter;
+    --color-white: #1AB0B0;
+    --color-two: #FF7443;
+    --color-three: #FA5A7D;
+    --color-four: #8676FE;
+}
