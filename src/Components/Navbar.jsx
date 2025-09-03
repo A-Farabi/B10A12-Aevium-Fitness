@@ -48,8 +48,8 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="btn btn-ghost text-xl w-[42%] lg:w-[20%] bg-black">
-            <img src="/src/assets/Aevium.png" alt="" />
+          <div className="btn btn-ghost text-xl w-[42%]">
+            <img src="/src/assets/Aevium3.png" alt="" />
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
