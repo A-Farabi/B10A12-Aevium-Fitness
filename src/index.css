@@ -1,22 +1,16 @@
 @import "tailwindcss";
-@plugin "daisyui";
+ @plugin "daisyui";
 
 @theme{
     --font-heading: oswald;
     --font-regular: inter;
 };
 
-
  @plugin "daisyui" {
-   themes: [
-    {
-      mytheme: {
+   themes:
         primary: "#1AB0B0",
         secondary: "#8676FE",
         accent: "#FA5A7D",
         neutral: "#1D232A",
-        "base-100": "#FFFFFF",
-      },
-    },
-  ],
- }
+        "base-100": "#FFFFFF"
+}
