@@ -48,9 +48,9 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="btn btn-ghost text-xl w-[42%]">
-            <img src="/src/assets/Aevium3.png" alt="" />
-          </div>
+          <Link to="/" className="text-xl w-[60%] lg:w-[42%] md:w-[42%]">
+            <img src="/src/assets/Aevium3.png" alt="" className="w-full"/>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

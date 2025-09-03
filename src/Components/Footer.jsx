@@ -5,6 +5,7 @@ import {
   FaTwitter,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -68,29 +69,29 @@ const Footer = () => {
           <h4 className="text-lg font-semibold">Explore</h4>
           <ul className="space-y-2 text-base-content/70 text-sm">
             <li>
-              <a href="#" className="hover:text-[#1AB0B0] transition-colors">
+              <Link to="/" href="#" className="hover:text-[#1AB0B0] transition-colors">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-[#1AB0B0] transition-colors">
+              <Link to="/" href="#" className="hover:text-[#1AB0B0] transition-colors">
                 Programs
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-[#1AB0B0] transition-colors">
+              <Link to="/" href="#" className="hover:text-[#1AB0B0] transition-colors">
                 Trainers
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-[#1AB0B0] transition-colors">
+              <Link to="/" href="#" className="hover:text-[#1AB0B0] transition-colors">
                 Pricing
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-[#1AB0B0] transition-colors">
+              <Link to="/" href="#" className="hover:text-[#1AB0B0] transition-colors">
                 About Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
