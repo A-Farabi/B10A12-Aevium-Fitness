@@ -4,8 +4,19 @@
 @theme{
     --font-heading: oswald;
     --font-regular: inter;
-    --color-white: #1AB0B0;
-    --color-two: #FF7443;
-    --color-three: #FA5A7D;
-    --color-four: #8676FE;
-}
+};
+
+
+ @plugin "daisyui" {
+   themes: [
+    {
+      mytheme: {
+        primary: "#1AB0B0",
+        secondary: "#8676FE",
+        accent: "#FA5A7D",
+        neutral: "#1D232A",
+        "base-100": "#FFFFFF",
+      },
+    },
+  ],
+ }
