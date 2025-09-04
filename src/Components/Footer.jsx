@@ -97,6 +97,8 @@ const Footer = () => {
         </div>
       </div>
 
+    {/* TODO : Fix footer */}
+
       {/* Bottom Copyright */}
       <div className="w-full mx-auto text-center pt-8 border-t border-base-700 mt-10">
         <p className="text-base-content/60 text-sm">
