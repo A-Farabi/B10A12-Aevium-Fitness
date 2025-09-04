@@ -79,7 +79,7 @@ const ReviewSection = () => {
   };
 
   return (
-    <section className="py-16 px-6 md:px-12 lg:px-20">
+    <section className="pb-16 px-6 md:px-12 lg:px-20">
       <div className="max-w-4xl mx-auto text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-base-content">
           What Our <span className="text-[#1AB0B0]">Members Say</span>
