@@ -10,6 +10,8 @@ import {
 import Mainlayout from './Layout/MainLayout/Mainlayout';
 import Home from './Pages/Home';
 import ErrorPage from './Pages/ErrorPage';
+import Login from './Layout/AuthLayout/Login';
+import Register from './Layout/AuthLayout/Register';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-      }
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+
     ]
   }
 ]);
