@@ -1,7 +1,19 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    // Call createUser / loginUser with data.email & data.password
+  };
+
   return (
     <div className="flex items-center justify-center sm:px-6 lg:px-8">
       <div className="w-full max-w-md mt-7 bg-white border border-gray-200 rounded-xl shadow-2xs">
@@ -54,7 +66,7 @@ const Login = () => {
             </div>
 
             {/* Form */}
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-y-4">
                 {/* Email */}
                 <div>
@@ -63,11 +75,12 @@ const Login = () => {
                   </label>
                   <input
                     type="email"
+                    {...register("email", { required: true })}
                     id="email"
                     name="email"
                     className="border py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                    required
                   />
+                        {errors.exampleRequired && <span>This field is required</span>}
                 </div>
 
                 {/* Password */}
@@ -86,10 +99,10 @@ const Login = () => {
                   </div>
                   <input
                     type="password"
+                    {...register("password", { required: true })}
                     id="password"
                     name="password"
                     className="border py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                    required
                   />
                 </div>
 
