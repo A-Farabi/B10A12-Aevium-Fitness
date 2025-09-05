@@ -1,17 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
   Link,
 } from "react-router-dom";
-import Mainlayout from './Layout/MainLayout/Mainlayout';
-import Home from './Pages/Home';
-import ErrorPage from './Pages/ErrorPage';
-import Login from './Layout/AuthLayout/Login';
-import Register from './Layout/AuthLayout/Register';
+import Mainlayout from "./Layout/MainLayout/Mainlayout";
+import Home from "./Pages/Home";
+import ErrorPage from "./Pages/ErrorPage";
+import Login from "./Layout/AuthLayout/Login";
+import Register from "./Layout/AuthLayout/Register";
+import AuthProvider from "./Layout/AuthLayout/Authprovider";
 
 const router = createBrowserRouter([
   {
@@ -31,13 +32,14 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
-
-    ]
-  }
+    ],
+  },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <AuthProvider>
       <RouterProvider router={router} />
-  </StrictMode>,
-)
+    </AuthProvider>
+  </StrictMode>
+);
