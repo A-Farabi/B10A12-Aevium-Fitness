@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const AllTrainers = () => {
-  // Mock Trainer Data
+  // Mock data of all Trainers
   const trainers = [
     {
       _id: 1,
@@ -157,16 +157,16 @@ const AllTrainers = () => {
                   )}
                 </div>
 
-                {/* Know More Button */}
-                <div className="card-actions mt-5">
-                  <Link
-                    to={`/trainer/${trainer._id}`}
-                    className="btn btn-primary w-full text-white"
-                    style={{ backgroundColor: '#1AB0B0' }}
-                  >
-                    Know More
-                  </Link>
-                </div>
+{/* Know More Button */}
+<div className="card-actions mt-5">
+  <Link
+    to={`/trainers/${trainer._id}`}
+    className="btn btn-primary w-full text-white"
+    style={{ backgroundColor: '#1AB0B0' }}
+  >
+    Know More
+  </Link>
+</div>
               </div>
             </div>
           ))}

@@ -14,6 +14,9 @@ import Login from "./Layout/AuthLayout/Login";
 import Register from "./Layout/AuthLayout/Register";
 import AuthProvider from "./Layout/AuthLayout/Authprovider";
 import AllTrainers from "./Pages/AllTrainers";
+import TrainerDetails from "./Components/TrainerDetails";
+import BookingPage from "./Components/BookingPage";
+import BecomeTrainer from "./Components/BecomeTrainer";
 
 const router = createBrowserRouter([
   {
@@ -38,9 +41,21 @@ const router = createBrowserRouter([
         element: <AllTrainers />,
       },
       {
-        path: "/trainers/:id",
-        element: <AllTrainers />,
+        path: "/trainers/:_id",
+        element: <TrainerDetails />,
       },
+      {
+        path: "/booking/:id",
+        element: <BookingPage />,
+      },
+      {
+        path: "/become-trainer",
+        element: <BecomeTrainer />,
+      },
+      // {
+      //   path: "/trainer/:id",
+      //   element: <TrainerDetails />,
+      // },
     ],
   },
 ]);
