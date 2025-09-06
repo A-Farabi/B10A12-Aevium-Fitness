@@ -17,6 +17,7 @@ import AllTrainers from "./Pages/AllTrainers";
 import TrainerDetails from "./Components/TrainerDetails";
 import BookingPage from "./Components/BookingPage";
 import BecomeTrainer from "./Components/BecomeTrainer";
+import PaymentPage from "./Pages/PaymentPage";
 
 const router = createBrowserRouter([
   {
@@ -52,10 +53,11 @@ const router = createBrowserRouter([
         path: "/become-trainer",
         element: <BecomeTrainer />,
       },
-      // {
-      //   path: "/trainer/:id",
-      //   element: <TrainerDetails />,
-      // },
+      {
+        path: "/payment",
+        element: <PaymentPage />,
+      },
+
     ],
   },
 ]);
