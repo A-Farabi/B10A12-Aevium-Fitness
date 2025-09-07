@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const BookingPage = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const selectedSlot = searchParams.get('slot');
+  const selectedSlot = searchParams.get("slot");
 
   // Mock trainer data (in real app, this would come from context or API)
   const trainer = {
-    id: 1,
-    name: "Lena Carter",
+    name: "Jao Neves",
+    image: "https://i.ibb.co.com/7xxRYfjQ/gymtrainer.jpg",
     photo: "/assets/trainers/lena.jpg",
     specialty: "Strength & HIIT Coach",
   };
@@ -59,7 +59,8 @@ const BookingPage = () => {
           Confirm Your Session
         </h1>
         <p className="text-base-content/70 mt-2">
-          with <span className="font-semibold text-[#1AB0B0]">{trainer.name}</span>
+          with{" "}
+          <span className="font-semibold text-[#1AB0B0]">{trainer.name}</span>
         </p>
       </div>
 
@@ -67,12 +68,14 @@ const BookingPage = () => {
       <div className="bg-base-100 p-6 rounded-xl shadow-sm mb-10">
         <div className="flex items-center gap-4 mb-6">
           <img
-            src={trainer.photo}
+            src={trainer.image}
             alt={trainer.name}
             className="w-16 h-16 rounded-lg object-cover border-2 border-[#1AB0B0]"
           />
           <div>
-            <h2 className="text-xl font-bold text-base-content">{trainer.name}</h2>
+            <h2 className="text-xl font-bold text-base-content">
+              {trainer.name}
+            </h2>
             <p className="text-base-content/70">{trainer.specialty}</p>
           </div>
         </div>
@@ -117,13 +120,20 @@ const BookingPage = () => {
                     Popular
                   </div>
                 )}
-                <h3 className="text-xl font-bold text-base-content">{pkg.name} Membership</h3>
-                <div className="text-2xl font-extrabold text-[#1AB0B0] mb-4">{pkg.price}</div>
+                <h3 className="text-xl font-bold text-base-content">
+                  {pkg.name} Membership
+                </h3>
+                <div className="text-2xl font-extrabold text-[#1AB0B0] mb-4">
+                  {pkg.price}
+                </div>
 
                 {/* Features */}
                 <ul className="space-y-2 mb-6">
                   {pkg.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-base-content/80 flex items-start gap-2">
+                    <li
+                      key={i}
+                      className="text-sm text-base-content/80 flex items-start gap-2"
+                    >
                       <span
                         className="inline-block w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
                         style={{ backgroundColor: pkg.color }}
@@ -142,7 +152,8 @@ const BookingPage = () => {
                         : "border-base-content/50"
                     }`}
                     style={{
-                      borderColor: selectedPackage === pkg.name ? undefined : pkg.color,
+                      borderColor:
+                        selectedPackage === pkg.name ? undefined : pkg.color,
                     }}
                   >
                     {selectedPackage === pkg.name && (
@@ -167,7 +178,9 @@ const BookingPage = () => {
             selectedSlot
           )}&package=${selectedPackage}`}
           className={`btn text-white font-semibold px-10 py-3 text-lg rounded-full shadow-lg transform hover:scale-105 transition-all ${
-            !selectedPackage ? "opacity-60 cursor-not-allowed" : "hover:shadow-[#1AB0B0]/30"
+            !selectedPackage
+              ? "opacity-60 cursor-not-allowed"
+              : "hover:shadow-[#1AB0B0]/30"
           }`}
           style={{
             backgroundColor: selectedPackage ? "#1AB0B0" : "#ccc",
@@ -192,7 +205,8 @@ const BookingPage = () => {
       {/* Cancellation Policy */}
       <div className="mt-12 text-center text-sm text-base-content/50">
         <p>
-          ✅ 60-minute session &nbsp;|&nbsp; 💬 Cancellation: 24h notice &nbsp;|&nbsp; 🔐 Secure payment
+          ✅ 60-minute session &nbsp;|&nbsp; 💬 Cancellation: 24h notice
+          &nbsp;|&nbsp; 🔐 Secure payment
         </p>
       </div>
     </div>
