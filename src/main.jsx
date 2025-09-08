@@ -18,6 +18,7 @@ import TrainerDetails from "./Components/TrainerDetails";
 import BookingPage from "./Components/BookingPage";
 import BecomeTrainer from "./Components/BecomeTrainer";
 import PaymentPage from "./Pages/PaymentPage";
+import AllClassesPage from "./Pages/AllClassesPage";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/payment",
         element: <PaymentPage />,
+      },
+      {
+        path: "/all-classes",
+        element: <AllClassesPage />,
       },
 
     ],
