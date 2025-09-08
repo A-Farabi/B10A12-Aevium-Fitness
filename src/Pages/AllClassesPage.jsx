@@ -183,7 +183,7 @@ const AllClassesPage = () => {
                     return (
                       <Link
                         key={trainerId}
-                        to={`/trainer/${trainerId}`}
+                        to={`/trainers/${trainerId}`}
                         className="w-10 h-10 border-2 border-white rounded-full overflow-hidden hover:ring-2 hover:ring-[#1AB0B0] transition-all transform hover:scale-110"
                         title={trainer.name}
                       >
