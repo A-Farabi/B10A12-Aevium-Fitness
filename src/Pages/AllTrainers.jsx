@@ -1,67 +1,68 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import useFetch from '../Hooks/useFetch';
 
 const AllTrainers = () => {
   // Mock data of all Trainers
-  const trainers = [
-    {
-      _id: 1,
-      name: "Jao Neves",
-      image: "https://i.ibb.co.com/HTmp90Hd/gymtrainer3.jpg",
-      experience: 10,
-      specialty: "Strength & HIIT",
-      bio: "Certified strength coach with a passion for transforming beginners into athletes.",
-      social: {
-        facebook: "#",
-        twitter: "#",
-        instagram: "lenacarter.fit",
-      },
-      availableSlots: 3,
-    },
-    {
-      _id: 2,
-      name: "M. Martinez",
-      image: "https://i.ibb.co.com/fth0HYh/chris-pine.jpg",
-      experience: 8,
-      specialty: "Yoga & Mobility",
-      bio: "Brings mindfulness and movement together to heal and strengthen the body.",
-      social: {
-        facebook: "#",
-        twitter: "rohan_wellness",
-        instagram: "rohan.yoga",
-      },
-      availableSlots: 5,
-    },
-    {
-      _id: 3,
-      name: "Mular Thompson",
-      image: "https://i.ibb.co.com/TMwwpKP4/gymtrainer2.webp",
-      experience: 12,
-      specialty: "Cardio & Endurance",
-      bio: "Former marathon champion. She helps clients push past limits safely and sustainably.",
-      social: {
-        facebook: "mayathompson.run",
-        twitter: "#",
-        instagram: "maya.endurance",
-      },
-      availableSlots: 2,
-    },
-    {
-      _id: 4,
-      name: "Diego Morales",
-      image: "https://i.ibb.co.com/7xxRYfjQ/gymtrainer.jpg",
-      experience: 9,
-      specialty: "Functional Fitness",
-      bio: "Focuses on real-world strength, balance, and injury prevention.",
-      social: {
-        facebook: "#",
-        twitter: "diego_kettlebell",
-        instagram: "diego.functional",
-      },
-      availableSlots: 4,
-    },
-  ];
+  // const trainers = [
+  //   {
+  //     _id: 1,
+  //     name: "Jao Neves",
+  //     image: "https://i.ibb.co.com/HTmp90Hd/gymtrainer3.jpg",
+  //     experience: 10,
+  //     specialty: "Strength & HIIT",
+  //     bio: "Certified strength coach with a passion for transforming beginners into athletes.",
+  //     social: {
+  //       facebook: "#",
+  //       twitter: "#",
+  //       instagram: "lenacarter.fit",
+  //     },
+  //     availableSlots: 3,
+  //   },
+  //   {
+  //     _id: 2,
+  //     name: "M. Martinez",
+  //     image: "https://i.ibb.co.com/fth0HYh/chris-pine.jpg",
+  //     experience: 8,
+  //     specialty: "Yoga & Mobility",
+  //     bio: "Brings mindfulness and movement together to heal and strengthen the body.",
+  //     social: {
+  //       facebook: "#",
+  //       twitter: "rohan_wellness",
+  //       instagram: "rohan.yoga",
+  //     },
+  //     availableSlots: 5,
+  //   },
+  //   {
+  //     _id: 3,
+  //     name: "Mular Thompson",
+  //     image: "https://i.ibb.co.com/TMwwpKP4/gymtrainer2.webp",
+  //     experience: 12,
+  //     specialty: "Cardio & Endurance",
+  //     bio: "Former marathon champion. She helps clients push past limits safely and sustainably.",
+  //     social: {
+  //       facebook: "mayathompson.run",
+  //       twitter: "#",
+  //       instagram: "maya.endurance",
+  //     },
+  //     availableSlots: 2,
+  //   },
+  //   {
+  //     _id: 4,
+  //     name: "Diego Morales",
+  //     image: "https://i.ibb.co.com/7xxRYfjQ/gymtrainer.jpg",
+  //     experience: 9,
+  //     specialty: "Functional Fitness",
+  //     bio: "Focuses on real-world strength, balance, and injury prevention.",
+  //     social: {
+  //       facebook: "#",
+  //       twitter: "diego_kettlebell",
+  //       instagram: "diego.functional",
+  //     },
+  //     availableSlots: 4,
+  //   },
+  // ];
   // {
   //   _id: 5,
   //   name: "Sophie Lin",
@@ -90,6 +91,8 @@ const AllTrainers = () => {
   //   },
   //   availableSlots: 1,
   // },
+
+const {data : trainers = []} = useFetch("trainers", "http://localhost:5000/trainers")
 
   return (
     <section className="py-16 px-6 md:px-12 lg:px-20">
