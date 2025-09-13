@@ -20,6 +20,10 @@ import BecomeTrainer from "./Components/BecomeTrainer";
 import PaymentPage from "./Pages/PaymentPage";
 import AllClassesPage from "./Pages/AllClassesPage";
 import Loader from './Components/Loader';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient()
+
 
 const router = createBrowserRouter([
   {
@@ -75,7 +79,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </AuthProvider>
   </StrictMode>
 );

@@ -61,35 +61,35 @@ const AllTrainers = () => {
       },
       availableSlots: 4,
     },
-    // {
-    //   _id: 5,
-    //   name: "Sophie Lin",
-    //   image: "/assets/trainers/sophie.jpg",
-    //   experience: 6,
-    //   specialty: "Pilates & Core",
-    //   bio: "Precision and control are her mantras. Perfect for posture and core strength.",
-    //   social: {
-    //     facebook: "#",
-    //     twitter: "#",
-    //     instagram: "sophie.pilates",
-    //   },
-    //   availableSlots: 6,
-    // },
-    // {
-    //   _id: 6,
-    //   name: "Jamal Khan",
-    //   image: "/assets/trainers/jamal.jpg",
-    //   experience: 11,
-    //   specialty: "Boxing & Conditioning",
-    //   bio: "Ex-boxer turned coach. Trains discipline, speed, and mental toughness.",
-    //   social: {
-    //     facebook: "jamal.fight",
-    //     twitter: "jamal_boxer",
-    //     instagram: "jamal.khan.fitness",
-    //   },
-    //   availableSlots: 1,
-    // },
   ];
+  // {
+  //   _id: 5,
+  //   name: "Sophie Lin",
+  //   image: "/assets/trainers/sophie.jpg",
+  //   experience: 6,
+  //   specialty: "Pilates & Core",
+  //   bio: "Precision and control are her mantras. Perfect for posture and core strength.",
+  //   social: {
+  //     facebook: "#",
+  //     twitter: "#",
+  //     instagram: "sophie.pilates",
+  //   },
+  //   availableSlots: 6,
+  // },
+  // {
+  //   _id: 6,
+  //   name: "Jamal Khan",
+  //   image: "/assets/trainers/jamal.jpg",
+  //   experience: 11,
+  //   specialty: "Boxing & Conditioning",
+  //   bio: "Ex-boxer turned coach. Trains discipline, speed, and mental toughness.",
+  //   social: {
+  //     facebook: "jamal.fight",
+  //     twitter: "jamal_boxer",
+  //     instagram: "jamal.khan.fitness",
+  //   },
+  //   availableSlots: 1,
+  // },
 
   return (
     <section className="py-16 px-6 md:px-12 lg:px-20">
