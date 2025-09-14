@@ -1,67 +1,75 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import axios from "axios";
 
 const TrainerDetails = () => {
   const { _id } = useParams();
+  const [trainer, setTrainer] = useState(null)
   console.log(_id);
 
-const mockTrainers = [
-  {
-    _id: 1,
-    name: "Jao Neves",
-    image: "https://i.ibb.co.com/HTmp90Hd/gymtrainer3.jpg",
-    experience: 10,
-    specialty: ["Strength Training", "HIIT", "Nutrition Coaching"],
-    bio: "With over a decade of experience, Neves is a certified strength coach passionate about transforming beginners into confident athletes. He believes in progressive overload, proper form, and long-term sustainability.",
-    qualifications: [
-      "NASM-CPT",
-      "Precision Nutrition Level 1",
-      "Corrective Exercise Specialist",
-    ],
-    rating: 4.9,
-    totalReviews: 84,
-  },
-  {
-    _id: 2,
-    name: "M. Martinez",
-    image: "https://i.ibb.co.com/fth0HYh/chris-pine.jpg",
-    experience: 8,
-    specialty: ["Yoga", "Mobility", "Meditation", "Injury Recovery"],
-    bio: "Marti blends ancient mindfulness practices with modern movement science. His sessions focus on alignment, breathwork, and holistic healing — perfect for high-stress professionals and recovering athletes.",
-    qualifications: [
-      "E-RYT 500",
-      "Yoga Therapy Certified",
-      "Functional Movement Screen (FMS)",
-    ],
-    rating: 5.0,
-    totalReviews: 56,
-  },
-  {
-    _id: 3,
-    name: "Mular Thompson",
-    image: "https://i.ibb.co.com/TMwwpKP4/gymtrainer2.webp",
-    experience: 12,
-    specialty: ["Cardio & Endurance"],
-    bio: "Former marathon champion. She helps clients push past limits safely and sustainably.",
-    qualifications: ["Certified Endurance Coach", "Sports Nutrition Diploma"],
-    rating: 4.8,
-    totalReviews: 63,
-  },
-  {
-    _id: 4,
-    name: "Diego Morales",
-    image: "https://i.ibb.co.com/7xxRYfjQ/gymtrainer.jpg",
-    experience: 9,
-    specialty: ["Functional Fitness"],
-    bio: "Focuses on real-world strength, balance, and injury prevention.",
-    qualifications: ["CrossFit Level 2", "Kettlebell Specialist"],
-    rating: 4.7,
-    totalReviews: 45,
-  },
-];
+  useEffect(()=>{
+    axios.get(`http://localhost:5000/trainers/${_id}`)
+    .then(res => setTrainer(res.data))
+    .catch(err => console.log(err.message))
+  },[_id])
 
-const trainer = mockTrainers.find(t => t._id === Number(_id));
+// const mockTrainers = [
+//   {
+//     _id: 1,
+//     name: "Jao Neves",
+//     image: "https://i.ibb.co.com/HTmp90Hd/gymtrainer3.jpg",
+//     experience: 10,
+//     specialty: ["Strength Training", "HIIT", "Nutrition Coaching"],
+//     bio: "With over a decade of experience, Neves is a certified strength coach passionate about transforming beginners into confident athletes. He believes in progressive overload, proper form, and long-term sustainability.",
+//     qualifications: [
+//       "NASM-CPT",
+//       "Precision Nutrition Level 1",
+//       "Corrective Exercise Specialist",
+//     ],
+//     rating: 4.9,
+//     totalReviews: 84,
+//   },
+//   {
+//     _id: 2,
+//     name: "M. Martinez",
+//     image: "https://i.ibb.co.com/fth0HYh/chris-pine.jpg",
+//     experience: 8,
+//     specialty: ["Yoga", "Mobility", "Meditation", "Injury Recovery"],
+//     bio: "Marti blends ancient mindfulness practices with modern movement science. His sessions focus on alignment, breathwork, and holistic healing — perfect for high-stress professionals and recovering athletes.",
+//     qualifications: [
+//       "E-RYT 500",
+//       "Yoga Therapy Certified",
+//       "Functional Movement Screen (FMS)",
+//     ],
+//     rating: 5.0,
+//     totalReviews: 56,
+//   },
+//   {
+//     _id: 3,
+//     name: "Mular Thompson",
+//     image: "https://i.ibb.co.com/TMwwpKP4/gymtrainer2.webp",
+//     experience: 12,
+//     specialty: ["Cardio & Endurance"],
+//     bio: "Former marathon champion. She helps clients push past limits safely and sustainably.",
+//     qualifications: ["Certified Endurance Coach", "Sports Nutrition Diploma"],
+//     rating: 4.8,
+//     totalReviews: 63,
+//   },
+//   {
+//     _id: 4,
+//     name: "Diego Morales",
+//     image: "https://i.ibb.co.com/7xxRYfjQ/gymtrainer.jpg",
+//     experience: 9,
+//     specialty: ["Functional Fitness"],
+//     bio: "Focuses on real-world strength, balance, and injury prevention.",
+//     qualifications: ["CrossFit Level 2", "Kettlebell Specialist"],
+//     rating: 4.7,
+//     totalReviews: 45,
+//   },
+// ];
+
+// const trainer = mockTrainers.find(t => t._id === Number(_id));
 
   // Mock Available Time Slots
   const availableSlots = [

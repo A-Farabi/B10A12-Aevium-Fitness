@@ -142,23 +142,25 @@ const {data : trainers = []} = useFetch("trainers", "http://localhost:5000/train
                 </div>
 
                 {/* Social Icons */}
-                <div className="flex gap-3 mt-4 text-base-content/60">
-                  {trainer.social.facebook && (
-                    <Link to={trainer.social.facebook} target="_blank" className="hover:text-[#1AB0B0] transition-colors">
-                      <FaFacebook className="w-4 h-4" />
-                    </Link>
-                  )}
-                  {trainer.social.twitter && (
-                    <Link to={`https://twitter.com/${trainer.social.twitter}`} target="_blank" className="hover:text-[#1AB0B0] transition-colors">
-                      <FaTwitter className="w-4 h-4" />
-                    </Link>
-                  )}
-                  {trainer.social.instagram && (
-                    <Link to={`https://instagram.com/${trainer.social.instagram}`} target="_blank" className="hover:text-[#1AB0B0] transition-colors">
-                      <FaInstagram className="w-4 h-4" />
-                    </Link>
-                  )}
-                </div>
+<div className="flex gap-3 mt-4 text-base-content/60">
+  {trainer.social?.facebook && (
+    <Link to={trainer.social.facebook} target="_blank" className="hover:text-[#1AB0B0] transition-colors">
+      <FaFacebook className="w-4 h-4" />
+    </Link>
+  )}
+  {trainer.social?.twitter && (
+    <Link to={`https://twitter.com/${trainer.social.twitter}`} target="_blank" className="hover:text-[#1AB0B0] transition-colors">
+      <FaTwitter className="w-4 h-4" />
+    </Link>
+  )}
+  {trainer.social?.instagram && (
+    <Link to={`https://instagram.com/${trainer.social.instagram}`} target="_blank" className="hover:text-[#1AB0B0] transition-colors">
+      <FaInstagram className="w-4 h-4" />
+    </Link>
+  )}
+</div>
+
+
 
 {/* Know More Button */}
 <div className="card-actions mt-5">
