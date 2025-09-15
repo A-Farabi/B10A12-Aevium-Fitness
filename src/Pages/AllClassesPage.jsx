@@ -1,115 +1,116 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useFetch from "./../Hooks/useFetch";
 
 // 🟡 Mock Data: Classes & Trainers
-const mockClasses = [
-  {
-    id: 1,
-    name: "Power Yoga",
-    image: "https://i.ibb.co.com/1fYg1WJ9/power-yoga.webp",
-    duration: "60 min",
-    intensity: "Medium",
-    description:
-      "A flowing blend of strength and flexibility. Perfect for stress relief and building core stability.",
-    trainerIds: [1, 2, 5], // IDs of trainers who teach this class
-  },
-  {
-    id: 2,
-    name: "HIIT Blast",
-    image: "https://i.ibb.co.com/JRTnCVW3/hiit-blast.jpg",
-    duration: "45 min",
-    intensity: "High",
-    description:
-      "High-Intensity Interval Training to torch calories and boost endurance in record time.",
-    trainerIds: [1, 3, 6],
-  },
-  {
-    id: 3,
-    name: "Strength & Core",
-    image: "https://i.ibb.co.com/7xdHxG5c/s-core.jpg",
-    duration: "50 min",
-    intensity: "High",
-    description:
-      "Build muscle and power with weights, resistance bands, and bodyweight drills.",
-    trainerIds: [1, 4, 6],
-  },
-  {
-    id: 4,
-    name: "Pilates Flow",
-    image: "https://i.ibb.co.com/600JPyWM/pilates.jpg",
-    duration: "55 min",
-    intensity: "Low",
-    description:
-      "Focus on posture, alignment, and deep core engagement through controlled movements.",
-    trainerIds: [5],
-  },
-  {
-    id: 5,
-    name: "Cardio Kick",
-    image: "https://i.ibb.co.com/gZWrqJzr/cardio-kik.jpg",
-    duration: "40 min",
-    intensity: "High",
-    description:
-      "Fast-paced cardio with dance, boxing, and jump rope to keep your heart pumping.",
-    trainerIds: [3, 4, 6],
-  },
-  {
-    id: 6,
-    name: "Mobility & Recovery",
-    image: "https://i.ibb.co.com/tMbqxGjx/mov-recovery.jpg",
-    duration: "30 min",
-    intensity: "Low",
-    description:
-      "Stretch, release tension, and improve joint mobility with guided foam rolling and breathing.",
-    trainerIds: [2, 5],
-  },
-  {
-    id: 7,
-    name: "Morning Zumba",
-    image: "https://i.ibb.co.com/fGBJvTgC/morning-zumba.jpg",
-    duration: "50 min",
-    intensity: "Medium",
-    description:
-      "Dance your way to fitness with upbeat Latin rhythms and fun choreography.",
-    trainerIds: [3, 4],
-  },
-  {
-    id: 8,
-    name: "Evening Spin",
-    image: "https://i.ibb.co.com/N6tVTKjD/e-spining.jpg",
-    duration: "45 min",
-    intensity: "High",
-    description:
-      "Ride to the beat in a high-energy indoor cycling session with interval sprints.",
-    trainerIds: [1, 6],
-  },
-];
+// const mockClasses = [
+//   {
+//     id: 1,
+//     name: "Power Yoga",
+//     image: "https://i.ibb.co.com/1fYg1WJ9/power-yoga.webp",
+//     duration: "60 min",
+//     intensity: "Medium",
+//     description:
+//       "A flowing blend of strength and flexibility. Perfect for stress relief and building core stability.",
+//     trainerIds: [1, 2, 5], // IDs of trainers who teach this class
+//   },
+//   {
+//     id: 2,
+//     name: "HIIT Blast",
+//     image: "https://i.ibb.co.com/JRTnCVW3/hiit-blast.jpg",
+//     duration: "45 min",
+//     intensity: "High",
+//     description:
+//       "High-Intensity Interval Training to torch calories and boost endurance in record time.",
+//     trainerIds: [1, 3, 6],
+//   },
+//   {
+//     id: 3,
+//     name: "Strength & Core",
+//     image: "https://i.ibb.co.com/7xdHxG5c/s-core.jpg",
+//     duration: "50 min",
+//     intensity: "High",
+//     description:
+//       "Build muscle and power with weights, resistance bands, and bodyweight drills.",
+//     trainerIds: [1, 4, 6],
+//   },
+//   {
+//     id: 4,
+//     name: "Pilates Flow",
+//     image: "https://i.ibb.co.com/600JPyWM/pilates.jpg",
+//     duration: "55 min",
+//     intensity: "Low",
+//     description:
+//       "Focus on posture, alignment, and deep core engagement through controlled movements.",
+//     trainerIds: [5],
+//   },
+//   {
+//     id: 5,
+//     name: "Cardio Kick",
+//     image: "https://i.ibb.co.com/gZWrqJzr/cardio-kik.jpg",
+//     duration: "40 min",
+//     intensity: "High",
+//     description:
+//       "Fast-paced cardio with dance, boxing, and jump rope to keep your heart pumping.",
+//     trainerIds: [3, 4, 6],
+//   },
+//   {
+//     id: 6,
+//     name: "Mobility & Recovery",
+//     image: "https://i.ibb.co.com/tMbqxGjx/mov-recovery.jpg",
+//     duration: "30 min",
+//     intensity: "Low",
+//     description:
+//       "Stretch, release tension, and improve joint mobility with guided foam rolling and breathing.",
+//     trainerIds: [2, 5],
+//   },
+//   {
+//     id: 7,
+//     name: "Morning Zumba",
+//     image: "https://i.ibb.co.com/fGBJvTgC/morning-zumba.jpg",
+//     duration: "50 min",
+//     intensity: "Medium",
+//     description:
+//       "Dance your way to fitness with upbeat Latin rhythms and fun choreography.",
+//     trainerIds: [3, 4],
+//   },
+//   {
+//     id: 8,
+//     name: "Evening Spin",
+//     image: "https://i.ibb.co.com/N6tVTKjD/e-spining.jpg",
+//     duration: "45 min",
+//     intensity: "High",
+//     description:
+//       "Ride to the beat in a high-energy indoor cycling session with interval sprints.",
+//     trainerIds: [1, 6],
+//   },
+// ];
 
 // 🟡 Mock Trainers (same as before)
-const mockTrainers = {
-  1: {
-    id: 1,
-    name: "Jao Neves",
-    photo: "https://i.ibb.co.com/HTmp90Hd/gymtrainer3.jpg",
-  },
-  2: {
-    id: 2,
-    name: "M. Martinez",
-    photo: "https://i.ibb.co.com/fth0HYh/chris-pine.jpg",
-  },
-  3: {
-    id: 3,
-    name: "Mular Thompson",
-    photo: "https://i.ibb.co.com/TMwwpKP4/gymtrainer2.webp",
-  },
-  4: {
-    id: 4,
-    name: "Diego Morales",
-    photo: "https://i.ibb.co.com/7xxRYfjQ/gymtrainer.jpg",
-  },
-  5: { id: 5, name: "Sophie Lin", photo: "https://i.ibb.co.com/nzgDRjx/1.jpg" },
-  6: { id: 6, name: "Jamal Khan", photo: "https://i.ibb.co.com/dJm974H/3.jpg" },
-};
+// const trainers = {
+//   1: {
+//     id: 1,
+//     name: "Jao Neves",
+//     photo: "https://i.ibb.co.com/HTmp90Hd/gymtrainer3.jpg",
+//   },
+//   2: {
+//     id: 2,
+//     name: "M. Martinez",
+//     photo: "https://i.ibb.co.com/fth0HYh/chris-pine.jpg",
+//   },
+//   3: {
+//     id: 3,
+//     name: "Mular Thompson",
+//     photo: "https://i.ibb.co.com/TMwwpKP4/gymtrainer2.webp",
+//   },
+//   4: {
+//     id: 4,
+//     name: "Diego Morales",
+//     photo: "https://i.ibb.co.com/7xxRYfjQ/gymtrainer.jpg",
+//   },
+//   5: { id: 5, name: "Sophie Lin", photo: "https://i.ibb.co.com/nzgDRjx/1.jpg" },
+//   6: { id: 6, name: "Jamal Khan", photo: "https://i.ibb.co.com/dJm974H/3.jpg" },
+// };
 
 // 🔢 Pagination: 6 classes per page
 const ITEMS_PER_PAGE = 6;
@@ -117,12 +118,25 @@ const ITEMS_PER_PAGE = 6;
 const AllClassesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
+  const { data: allClasses = [] } = useFetch(
+    "allClasses",
+    "http://localhost:5000/all-classes"
+  );
+
+  const { data: trainers = [] } = useFetch(
+    "trainers",
+    "http://localhost:5000/trainers"
+  );
+
+  console.log("class_Api:", allClasses);
+  console.log("trainers_Api:", trainers);
+
   // 🔍 Calculate total pages
-  const totalPages = Math.ceil(mockClasses.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(allClasses.length / ITEMS_PER_PAGE);
 
   // 📄 Get classes for current page
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const currentClasses = mockClasses.slice(
+  const currentClasses = allClasses.slice(
     startIndex,
     startIndex + ITEMS_PER_PAGE
   );
@@ -179,7 +193,19 @@ const AllClassesPage = () => {
                 </h3>
                 <div className="flex -space-x-2">
                   {cls.trainerIds.map((trainerId) => {
-                    const trainer = mockTrainers[trainerId];
+                    const trainer = trainers.find(
+                      (t) => t._id === trainerId || t.id === trainerId
+                      
+                    );
+
+                    if (!trainer) {
+                      return (
+                        <span key={trainerId} className="text-red-500 text-xs">
+                          Trainer not found
+                        </span>
+                      );
+                    }
+
                     return (
                       <Link
                         key={trainerId}
@@ -188,7 +214,7 @@ const AllClassesPage = () => {
                         title={trainer.name}
                       >
                         <img
-                          src={trainer.photo}
+                          src={trainer.image}
                           alt={trainer.name}
                           className="w-full h-full object-cover"
                         />
