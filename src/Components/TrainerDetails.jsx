@@ -81,6 +81,8 @@ const TrainerDetails = () => {
     "Fri, Aug 16 - 07:00 PM",
   ];
 
+  // TODO : Change AvailableSlots mock to real one......
+
   if (!trainer) {
     return (
       <div className="py-20 text-center">
