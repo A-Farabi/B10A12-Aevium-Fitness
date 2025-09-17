@@ -8,10 +8,9 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import auth from './firebase.config';
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext(null);
 
@@ -69,21 +68,24 @@ const AuthProvider = ({ children }) => {
     setLoading(false);
 
     if (currentUser?.email) {
-      const userInfo = { email: currentUser.email };
+      const userInfo = { email: currentUser.email, role: "user" };
       console.log(userInfo);
 
-    //   axiosPublic.post('/jwt', userInfo)
-    //     .then((res) => {
-    //       if (res.data.token) {
-    //         localStorage.setItem("access-token", res.data.token);
-    //         // console.log("Token stored in localStorage");
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.error("JWT API error:", error);
-    //     });
-    // } else {
-    //   localStorage.removeItem("access-token");
+      axiosPublic.post('/jwt', userInfo)
+        .then((res) => {
+          // if (res.data.token) {
+          //   localStorage.setItem("access-token", res.data.token);
+          //   // console.log("Token stored in localStorage");
+          // }
+          if (res.data.insertedId) {
+            toast.success("User created in db successfully")
+          }
+        })
+        .catch((error) => {
+          console.error("JWT API error:", error);
+        });
+    } else {
+      // localStorage.removeItem("access-token");
       // console.log("User logged out - token removed");
     }
   });
@@ -105,7 +107,6 @@ const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider value={userInfo}>
       {children}
-      <ToastContainer></ToastContainer>
       {/* <ToastContainer /> */}
     </AuthContext.Provider>
   );

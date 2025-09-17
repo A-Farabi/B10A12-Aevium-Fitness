@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+// TODO : return desired comp. on success, 
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
