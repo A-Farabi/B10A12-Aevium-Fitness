@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
       const userInfo = { email: currentUser.email, role: "user" };
       console.log(userInfo);
 
-      axiosPublic.post('/jwt', userInfo)
+      axiosPublic.post('/users', userInfo)
         .then((res) => {
           // if (res.data.token) {
           //   localStorage.setItem("access-token", res.data.token);
@@ -82,7 +82,7 @@ const AuthProvider = ({ children }) => {
           }
         })
         .catch((error) => {
-          console.error("JWT API error:", error);
+          console.error("users adding error in DB:", error);
         });
     } else {
       // localStorage.removeItem("access-token");

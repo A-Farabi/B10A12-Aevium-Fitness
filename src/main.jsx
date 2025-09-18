@@ -22,6 +22,7 @@ import AllClassesPage from "./Pages/AllClassesPage";
 import Loader from "./Components/Loader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import DashBoard from "./Pages/DashBoard/DashBoard";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "/l",
         element: <Loader />,
+      },
+      {
+        path: "/dashboard",
+        element: <DashBoard/>,
       },
     ],
   },
