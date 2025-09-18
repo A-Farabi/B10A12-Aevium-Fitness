@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 const useRole = () => {
 
     const {user, loading} = useContext(AuthContext)
-    const email = user.email
+    const email = user?.email
     const axiosPublic = useAxiosPublic()
 
    const { data: role, isLoading } = useQuery({
