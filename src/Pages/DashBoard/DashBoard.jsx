@@ -51,7 +51,13 @@ const DashBoard = () => {
 
         {/* Main Content */}
         <main className="p-6 lg:p-8 flex-1 bg-base-200 min-h-screen">
-          <Outlet />
+            {role === 'admin' ? (
+    <AdminDashboard />
+  ) : role === 'trainer' ? (
+    <TrainerDashboard />
+  ) : (
+    <UserDashboard />
+  )}
         </main>
       </div>
 
@@ -79,8 +85,6 @@ const DashBoard = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1AB0B0]/20 to-transparent rounded-full"></div>
               </div>
 
-              
-
               {/* Role Badge */}
               <span
                 className="badge text-xs px-2 py-1 capitalize mt-2 inline-block"
@@ -106,6 +110,9 @@ const DashBoard = () => {
             </div>
           </div>
 
+                        {/* Add a flex-1 spacer to push footer down */}
+  <div className="flex-1"></div>
+
           {/* Footer / Collapse Button */}
           <div className="p-4 border-t border-[#2A3E55]">
             <button
@@ -122,22 +129,11 @@ const DashBoard = () => {
           </div>
         </aside>
       </div>
-    </div>
+
+
+
+</div>
   );
 };
 
-// <div className="py-10 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
-//   <h1 className="text-3xl font-bold text-base-content mb-2">Dashboard</h1>
-//   <p className="text-base-content/70 mb-8">
-//     Role: <span className="font-semibold capitalize">{role || 'user'}</span>
-//   </p>
-
-//   {role === 'admin' ? (
-//     <AdminDashboard />
-//   ) : role === 'trainer' ? (
-//     <TrainerDashboard />
-//   ) : (
-//     <UserDashboard />
-//   )}
-// </div>
 export default DashBoard;
