@@ -23,6 +23,7 @@ import Loader from "./Components/Loader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import DashBoard from "./Pages/DashBoard/DashBoard";
+import ProfilePage from "./Layout/AuthLayout/ProfilePage";
 
 const queryClient = new QueryClient();
 
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: "/l",
         element: <Loader />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
       },
       {
         path: "/dashboard",
