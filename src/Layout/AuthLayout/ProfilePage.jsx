@@ -8,16 +8,19 @@ import {
   FaEdit,
 } from "react-icons/fa";
 import toast from "react-hot-toast";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const ProfilePage = () => {
+    const axiosPublic = useAxiosPublic()
   const { user, updateUserProfile } = useContext(AuthContext);
+  console.log(user);
   const [name, setName] = useState(user?.displayName || "");
   const [photoUrl, setPhotoUrl] = useState(user?.photoURL || "");
 
   const [isUpdating, setIsUpdating] = useState(false);
   const [updated, setUpdated] = useState(false);
   const [isEditing, setIsEditing] = useState(false); // <-- NEW
-
+  
   const handleUpdate = async (e) => {
     e.preventDefault();
     setIsUpdating(true);
@@ -25,11 +28,16 @@ const ProfilePage = () => {
 
     try {
       await updateUserProfile(name, photoUrl);
+      await axiosPublic.patch(`/users/${user.email}`, {
+        name,
+        image: photoUrl,
+      });
+
       setUpdated(true);
       setIsEditing(false); // stop editing after update
       setTimeout(() => setUpdated(false), 3000);
     } catch (err) {
-      alert("Error updating profile: " + toast.error(err.message));
+      toast.error(err.message);
     } finally {
       setIsUpdating(false);
     }
