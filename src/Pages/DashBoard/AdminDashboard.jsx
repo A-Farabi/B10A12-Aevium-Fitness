@@ -1,11 +1,13 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+
+// Admin Navigation Links
+
 
 const AdminDashboard = () => {
-    return (
-        <div>
-            <h1>Admin DashBoard</h1>
-        </div>
-    );
+  return (
+    <Outlet></Outlet>
+  );
 };
 
 export default AdminDashboard;

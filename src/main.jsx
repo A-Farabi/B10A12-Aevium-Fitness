@@ -27,6 +27,7 @@ import ProfilePage from "./Layout/AuthLayout/ProfilePage";
 import UserDashboard from "./Pages/DashBoard/UserDashboard";
 import AdminDashboard from "./Pages/DashBoard/AdminDashboard";
 import TrainerDashboard from "./Pages/DashBoard/TrainerDashboard";
+import NewsletterSubscribers from "./Pages/DashBoard/AdminRoutes/NewsletterSubscribers";
 
 const queryClient = new QueryClient();
 
@@ -91,6 +92,11 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/admin",
             element: <AdminDashboard></AdminDashboard>,
+            children: [
+              { path: "/dashboard/admin/newsletter",
+                element: <NewsletterSubscribers /> 
+              },
+            ],
           },
           {
             path: "/dashboard/trainer",

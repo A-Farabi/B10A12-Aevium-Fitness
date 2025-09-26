@@ -14,6 +14,7 @@ import {
   FaTachometerAlt,
 } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
+import DashboardRoute from "./DashboardRoute";
 
 const DashBoard = () => {
   // TODO : on refresh ErrroPage showing up
@@ -110,11 +111,13 @@ const DashBoard = () => {
             </div>
           </div>
 
+          <DashboardRoute></DashboardRoute>
+
                         {/* Add a flex-1 spacer to push footer down */}
   <div className="flex-1"></div>
 
           {/* Footer / Collapse Button */}
-          <div className="p-4 border-t border-[#2A3E55]">
+          <div className="p-4 lg:p-0 border-t border-[#2A3E55]">
             <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
               className="btn btn-ghost btn-sm w-full justify-between text-gray-300 hover:text-white lg:hidden"
