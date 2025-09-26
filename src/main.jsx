@@ -24,6 +24,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import DashBoard from "./Pages/DashBoard/DashBoard";
 import ProfilePage from "./Layout/AuthLayout/ProfilePage";
+import UserDashboard from "./Pages/DashBoard/UserDashboard";
+import AdminDashboard from "./Pages/DashBoard/AdminDashboard";
+import TrainerDashboard from "./Pages/DashBoard/TrainerDashboard";
 
 const queryClient = new QueryClient();
 
@@ -79,7 +82,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <DashBoard/>,
+        element: <DashBoard />,
+        children: [
+          {
+            path: "/dashboard/user",
+            element: <UserDashboard></UserDashboard>,
+          },
+          {
+            path: "/dashboard/admin",
+            element: <AdminDashboard></AdminDashboard>,
+          },
+          {
+            path: "/dashboard/trainer",
+            element: <TrainerDashboard></TrainerDashboard>,
+          },
+        ],
       },
     ],
   },
@@ -88,10 +105,10 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-          <Toaster></Toaster>
-        </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <Toaster></Toaster>
+      </QueryClientProvider>
     </AuthProvider>
   </StrictMode>
 );
