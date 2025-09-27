@@ -13,8 +13,15 @@ const Newsletter = () => {
   const axiosPublic = useAxiosPublic();
 
   const onSubmit = (data) => {
+
+    const subscribingData = {
+      ...data,
+      subscribedAt: new Date().toLocaleDateString(),
+      status: "active"
+    }
+
     axiosPublic
-      .post("/newsletter", data)
+      .post("/newsletter", subscribingData)
       .then((res) => {
         if (res.data.insertedId) {
           reset();
