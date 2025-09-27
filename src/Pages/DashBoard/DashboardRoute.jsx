@@ -10,7 +10,7 @@ const DashboardRoute = () => {
   const adminNavLinks = [
     { name: "Overview", path: ".", icon: "📊" },
     { name: "Newsletter", path: "newsletter", icon: "📬" },
-    { name: "Trainer Management", path: "trainers", icon: "👥" },
+    { name: "Trainer Management", path: "trainer-management", icon: "👥" },
     { name: "Booking Management", path: "bookings", icon: "📅" },
     { name: "Content Settings", path: "settings", icon: "⚙️" },
   ];

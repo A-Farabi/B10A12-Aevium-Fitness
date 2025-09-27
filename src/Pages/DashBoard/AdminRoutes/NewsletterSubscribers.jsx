@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import useFetch from './../../../Hooks/useFetch';
 
 const NewsletterSubscribers = () => {
-  const [subscribers, setSubscribers] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   // Simulate API fetch
     const { data: newsLSubscribers = [] } = useFetch(
